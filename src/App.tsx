@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import TopBar from './components/TopBar'
 import BottomNavigation from './components/BottomNavigation'
 import CommsButton from './components/CommsButton'
