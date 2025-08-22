@@ -1,0 +1,465 @@
+:root {
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #0f0;
+  background-color: #000;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #000;
+  color: #0f0;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Spaceship console theme */
+.console-glow {
+  text-shadow: 0 0 10px #0f0, 0 0 20px #0f0;
+}
+
+.console-border {
+  border: 1px solid #0f0;
+  box-shadow: 0 0 10px #0f0;
+}
+
+.console-bg {
+  background: rgba(0, 20, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+/* Top bar styles */
+.top-bar {
+  height: 60px;
+  background: rgba(0, 20, 0, 0.9);
+  border-bottom: 2px solid #0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 1000;
+}
+
+.top-left, .top-center, .top-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.top-center {
+  flex-direction: column;
+  align-items: center;
+}
+
+.player-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.level-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.level-text {
+  font-size: 14px;
+}
+
+.xp-bar {
+  width: 200px;
+  height: 8px;
+  background: rgba(0, 255, 0, 0.2);
+  border: 1px solid #0f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.xp-fill {
+  height: 100%;
+  background: #0f0;
+  transition: width 0.3s ease;
+}
+
+.xp-text {
+  font-size: 12px;
+  color: #0a0;
+}
+
+.objectives-button {
+  background: transparent;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.objectives-button:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 15px #0f0;
+}
+
+.currency {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Bottom navigation styles */
+.bottom-nav {
+  height: 80px;
+  background: rgba(0, 20, 0, 0.9);
+  border-top: 2px solid #0f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 1000;
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Screen content */
+.screen-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Navigation buttons */
+.nav-button {
+  background: transparent;
+  border: 1px solid #0f0;
+  color: #0f0;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+.nav-button:hover {
+  background: rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 15px #0f0;
+}
+
+.nav-button.active {
+  background: rgba(0, 255, 0, 0.2);
+  box-shadow: 0 0 20px #0f0;
+}
+
+.nav-icon {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.nav-label {
+  font-size: 12px;
+}
+
+/* Comms button */
+.comms-button {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(0, 255, 0, 0.2);
+  border: 2px solid #0f0;
+  color: #0f0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.comms-button:hover {
+  background: rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 20px #0f0;
+  transform: scale(1.1);
+}
+
+/* Screen-specific styles */
+.star-map-screen h1,
+.shop-screen h1,
+.construction-screen h1,
+.resources-screen h1,
+.cards-screen h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 32px;
+}
+
+/* Star Map styles */
+.map-container {
+  margin-bottom: 30px;
+}
+
+.constellation-view {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.telescope-button {
+  margin: 15px 0;
+}
+
+.systems-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.system-card {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.system-card h3 {
+  margin-top: 0;
+  color: #0f0;
+  text-align: center;
+}
+
+.location-item {
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+}
+
+.location-item:last-child {
+  border-bottom: none;
+}
+
+/* Shop styles */
+.shop-info {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0a0;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.shop-item {
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.item-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.item-name {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.item-price {
+  color: #0f0;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.item-stock {
+  font-size: 12px;
+  color: #0a0;
+}
+
+/* Construction styles */
+.construction-bays {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.bay {
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.bay-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.bay-icon {
+  font-size: 24px;
+}
+
+.bay-size {
+  font-weight: bold;
+  flex: 1;
+}
+
+.bay-status {
+  color: #0a0;
+  font-size: 14px;
+}
+
+.bay-content {
+  text-align: center;
+}
+
+/* Resources styles */
+.resources-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.resource-item {
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.resource-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.resource-name {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.resource-count {
+  font-size: 18px;
+  color: #0f0;
+  margin-bottom: 5px;
+}
+
+.resource-unit {
+  font-size: 12px;
+  color: #0a0;
+}
+
+/* Cards styles */
+.card-classes {
+  margin-bottom: 30px;
+}
+
+.card-class {
+  margin-bottom: 30px;
+}
+
+.card-class h2 {
+  color: #0f0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #0f0;
+  padding-bottom: 5px;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+}
+
+.card-icon {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-name {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.card-tier {
+  color: #0f0;
+  margin-bottom: 5px;
+}
+
+.card-copies {
+  font-size: 12px;
+  color: #0a0;
+}
+
+/* Bottom action slots */
+.bottom-action-slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: auto;
+  padding: 20px 0;
+}
+
+.action-slot {
+  padding: 15px;
+  text-align: center;
+  border-radius: 8px;
+  background: rgba(0, 20, 0, 0.5);
+  color: #0a0;
+  font-size: 14px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .resources-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .bottom-action-slots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .systems-grid {
+    grid-template-columns: 1fr;
+  }
+}
